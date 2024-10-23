@@ -6,3 +6,4 @@ export default defineConfig({
   base: '/BaiTapTrenLop_React/',
   plugins: [react()],
 })
+   

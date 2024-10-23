@@ -1,106 +1,112 @@
-/* Slideshow container */
 .slideshow-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
-    background: linear-gradient(135deg, #74b9ff, #a29bfe); /* Gradient background */
-    overflow: hidden; /* Hide overflow to prevent scrollbars */
-    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
     padding: 20px;
     box-sizing: border-box;
-}
-
-/* Slideshow image styling */
-.slideshow-image {
-    width: 800px;
-    height: 450px;
+    text-align: center;
+  }
+  
+  .slideshow-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
     object-fit: cover;
+    display: block;
+    margin-bottom: 20px;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow for more depth */
-    transition: transform 0.5s ease-in-out; /* Smooth image transition effect */
-}
-
-/* Hover effect to scale the image slightly */
-.slideshow-image:hover {
-    transform: scale(1.02);
-}
-
-/* Navigation button styles */
-.nav-button {
-    position: absolute;
-    top: 50%;
-    background-color: rgba(0, 0, 0, 0.6); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button-group {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .arrow-button {
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    color: #3498db;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  .arrow-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .regular-button {
+    background-color: #3498db;
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 5px;
+    margin: 0 5px;
+  }
+  
+  .size-selector {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .image-counter {
+    margin-top: 10px;
     font-size: 18px;
-    z-index: 1;
-    transform: translateY(-50%);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-/* Button hover effect */
-.nav-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: translateY(-50%) scale(1.05);
-}
-
-/* Positioning for previous button */
-.nav-button.prev {
-    left: 20px;
-}
-
-/* Positioning for next button */
-.nav-button.next {
-    right: 20px;
-}
-
-/* Image index counter at the bottom */
-.image-counter {
+  }
+  
+  .thumbnails {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto; 
+  }
+  
+  .thumbnail-container {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px;
+  }
+  
+  .thumbnail {
+    width: 100px;
+    height: 50px;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.6;
+    border-radius: 5px;
+    transition: transform 0.3s;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1); /* Phóng to thumbnail khi hover */
+  }
+  
+  .thumbnail.active {
+    opacity: 1;
+    border: 2px solid #000;
+  }
+  
+  .arrow-button.prev {
     position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Animation for the counter */
-.image-counter {
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .slideshow-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .nav-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
-    .image-counter {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-}
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .arrow-button.next {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
